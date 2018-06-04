@@ -1,0 +1,29 @@
+#carsimage {
+    height: 650px;
+    width: 200%;
+}
+
+
+#cargamebody{
+    background:lightslategray;
+}
+
+#maintable, #mainrow{
+    width: 100%;
+    border: 1px solid black;
+    height: 600px;
+}
+
+
+#maincol {
+    width: 45%;
+    border: 2px solid black;
+}
+
+#cargamediv {
+    background: white;
+}
+
+#centre {
+    padding: 1%;
+}

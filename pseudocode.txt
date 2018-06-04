@@ -1,0 +1,17 @@
+array of strings
+random generating the words
+var that word and count number of letters in that word
+display that many spaces
+
+if keyboard letters (var selected word contains input keyboard letter, check the index and put it on screen)
+
+else 
+
+put it down.
+
+maintain 2 var integres for counts 1 for number of turns
+
+
+
+
+
