@@ -1,10 +1,12 @@
 
 
 //var textinput = document.getElementById("game");
-var arrayofStrings = ["Toyota","BMW","Mercedes","Nissan","Tesla","Honda","Hyundai","Audi","Ford","cadillac","Porsche","Chevrolet","volkswagen","Ferrari"];
+var arrayofStrings = ["Toyota","BMW","Mercedes","Nissan","Tesla","Honda","Hyundai","Audi","Ford","cadillac","Porsche","Chevrolet","volkswagen","Ferrari","Subaru","Lexus","CHRYSLER","KIA","Bentley","VOLVO","FIAT","RENAULT","Skoda","SAAB","SEAT"];
 var indexinStrings = 0;
 var noofIncorrectAttempts = 0;
 var audio = new Audio('BMW+DRIVEBY.mp3');
+var honkSound = new Audio('car_horn.mp3');
+var crash = new Audio('car_crashes_into_tree.mp3');
 console.log("indexes" + "  " + indexinStrings);
 var inputArray ;
 var guessArray = [];
@@ -21,7 +23,7 @@ window.onload = function()
 //console.log(guessArray);
 
 function gameInitialize() {
-    indexinStrings = Math.floor(Math.random()*14);
+    indexinStrings = Math.floor(Math.random()*26);
     noofIncorrectAttempts = 0;
     inputArray = arrayofStrings[indexinStrings].toUpperCase();
     guessArray = [];
@@ -37,6 +39,7 @@ function gameInitialize() {
     document.getElementById("numberofAttemptsLeft").textContent = 8-noofIncorrectAttempts;
     document.addEventListener('keydown', runevent);
     document.getElementById("result").textContent = "";
+    document.getElementById("noofwins").textContent = noOfWins;
 }
 //document.getElementById("text").textContent = guessArray;
 
@@ -50,14 +53,18 @@ function runevent(event) {
                 if (inputArray.includes(keyPressed))
                 {
                      guessArray = locations(keyPressed,inputArray,guessArray);
-                    //  audio.play();
-                  document.getElementById("text").textContent = guessArray;   
+                    //  audio.play(); 
+                  document.getElementById("text").textContent = guessArray;  
+                honkSound.play(); 
                 }      
                 else
-                {   
+                {  // crash.play(); 
                      extraKeys = document.getElementById("extraText").textContent.toUpperCase() ;
+                     
                      if (extraKeys.includes(keyPressed)){
+                       
                      alert("already pressed :  " + keyPressed);
+                     
                     }
                      else 
                      {
@@ -89,6 +96,7 @@ function runevent(event) {
              document.getElementById("result").style.color= "red";
              gameOverFlag=true;
              document.getElementById("result").textContent = "You Win!"; 
+             audio.play();
              noOfWins++;
              document.getElementById("noofwins").textContent = noOfWins;
              gameOver();     
@@ -118,11 +126,17 @@ function locations(keyPressed,inputArray,guessArray)
         return guessArray;
 }
 
-// function reset1() {
-//    alert("here");
+function reset1() {
+
  
-//    noOfWins = 0;
-// }
+   noOfWins = 0;
+   document.getElementById("noofwins").textContent = noOfWins;
+   noofIncorrectAttempts=0;
+   document.getElementById("numberofAttemptsLeft").textContent = 8-noofIncorrectAttempts;
+   extraKeys = "                           ";
+    document.getElementById("extraText").textContent = extraKeys ;
+   // window.reload();
+}
 
 
 
