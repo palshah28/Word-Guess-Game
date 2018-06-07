@@ -131,10 +131,7 @@ function reset1() {
  
    noOfWins = 0;
    document.getElementById("noofwins").textContent = noOfWins;
-   noofIncorrectAttempts=0;
-   document.getElementById("numberofAttemptsLeft").textContent = 8-noofIncorrectAttempts;
-   extraKeys = "                           ";
-    document.getElementById("extraText").textContent = extraKeys ;
+   gameInitialize();
    // window.reload();
 }
 
